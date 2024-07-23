@@ -1,0 +1,36 @@
+<nav>
+  <div>
+    <p>Superbowlbets</p>
+  </div>
+  <div class="nav-links">
+    <a href="#">Parier</a>
+    <a href="#">Visualiser tout les matchs</a>
+    <a *ngIf="!currentUser" routerLink="/connect">Se connecter</a>
+    <img
+      width="30px"
+      height="30px"
+      *ngIf="currentUser"
+      src="../../assets/avatar.png"
+      alt=""
+    />
+  </div>
+</nav>
+
+<h1>Le Superbowl</h1>
+<p>
+  Depuis 1966, le Super Bowl est la grande finale du Championnat NFL. Cette
+  rencontre est l'un des évènements sportifs les plus suivis au monde et le plus
+  regardé à la télévision aux États-Unis. La NFL compte 32 équipes divisées en 2
+  conférences, l'American Football Conference (AFC) et la National Football
+  Conference (NFC). À l'issue de la saison régulière, 14 équipes accèdent aux
+  playoffs et chaque conférence à son champion qui s'affrontent lors du Super
+  Bowl.
+</p>
+
+<h2>Les matchs du jour</h2>
+
+<div class="matches" *ngIf="todayMatches">
+  <div class="match" *ngFor="let match of todayMatches | async">
+    {{ match.homeTeam }} - {{ match.awayTeam }}
+  </div>
+</div>
